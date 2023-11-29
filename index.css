@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#date{
+    width: 140px;
+    height: 30px;
+    padding: 5px;
+}
+
+
+.fixedContent {
+    width: 250px; 
+    table-layout: fixed;
+}
+
+.checkedRow{
+    background-color: rgba(20, 12, 85, 0.5);
+}
+
+ 
