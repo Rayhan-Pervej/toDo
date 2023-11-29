@@ -1,6 +1,5 @@
-// task complete delete task
 
-let rowCounter = 1; // Initialize row counter
+let rowCounter = 1; 
 
 function addNewTask(event) {
     event.preventDefault();
@@ -11,7 +10,7 @@ function addNewTask(event) {
     const table = document.getElementById('tableBody');
 
     const newRow = document.createElement('tr');
-    newRow.id = `row${rowCounter}`; // Assign unique ID to the new row
+    newRow.id = `row${rowCounter}`; 
 
     newRow.innerHTML = `
     <th scope="row">
@@ -33,7 +32,7 @@ function addNewTask(event) {
     document.getElementById('date').value = '';
     document.getElementById('priority').value = '1';
 
-    rowCounter++; // Increment row counter for the next row
+    rowCounter++;
 }
 
 
@@ -63,14 +62,14 @@ var rowNum;
 
 function editClick(clickedElement) {
     $('#modalOpen').modal('show');
-    // Get the parent row of the clicked element
+    
     var parentRow = clickedElement.closest('tr');
 
     var rowId=parentRow.id;
     rowNum=rowId.replace('row', '');
     
 
-    // Get the data from the row using getElementsByTagName
+
     var taskName = parentRow.getElementsByTagName('td')[0].innerText || '';
     var priority = parentRow.getElementsByTagName('td')[1].innerText || '';
     var date = parentRow.getElementsByTagName('td')[2].innerText || '';
@@ -83,13 +82,12 @@ function editClick(clickedElement) {
         'High': '3'
     };
     var addPriority = priorityOpt[priority] || '';
-    // Populate modal fields with data from the table row
+    
     document.getElementById('editTask').value = taskName;
     document.getElementById('editDate').value = date;
     document.getElementById('editPriority').value = addPriority;
 
-    // Trigger the Bootstrap modal to show
-
+   
 
     
     
@@ -98,12 +96,12 @@ function editClick(clickedElement) {
 
 
 function saveChange(clickedElement) {
-    // Get the values from the modal
+    
     var editedTask = document.getElementById('editTask').value;
     var editedDate = document.getElementById('editDate').value;
     var editedPriority = document.getElementById('editPriority').value;
 
-    // Update the table cell with the new values
+   
     var tableRow = document.getElementById('row'+ rowNum); // Replace 'yourTableRowId' with the actual ID of your table row
     tableRow.getElementsByTagName('td')[0].innerText = editedTask;
     tableRow.getElementsByTagName('td')[1].innerText = getPriority(editedPriority);
